@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
     "target": "es2016" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */,
-
+    "allowJs": false,
     "module": "commonjs" /* Specify what module code is generated. */,
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   },
 
-  "include": ["src/**/*", "node_modules/cesium/**/*.d.s"]
+  "include": ["src/**/*", "node_modules/cesium/**/*.d.s", "src/**/*.vue"]
 }

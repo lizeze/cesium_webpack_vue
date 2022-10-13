@@ -44,7 +44,7 @@ module.exports = {
       },
       {
         test: /\.vue$/,
-        use: ["vue-loader"],
+        use: ["vue-loader"]
       },
     ],
   },
