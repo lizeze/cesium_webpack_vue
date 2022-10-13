@@ -5,6 +5,8 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { VueLoaderPlugin } = require("vue-loader/dist/index");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
   context: __dirname,
@@ -17,7 +19,13 @@ module.exports = {
     sourcePrefix: "",
   },
   resolve: {
-    fallback: { https: false, zlib: false, http: false, url: false ,path:false},
+    fallback: {
+      https: false,
+      zlib: false,
+      http: false,
+      url: false,
+      path: false,
+    },
     mainFiles: ["index", "Cesium"],
   },
   module: {
@@ -33,6 +41,10 @@ module.exports = {
       {
         test: /\.(png|gif|jpg|jpeg|svg|xml|json)$/,
         use: ["url-loader"],
+      },
+      {
+        test: /\.vue$/,
+        use: ["vue-loader"],
       },
     ],
   },
@@ -52,7 +64,9 @@ module.exports = {
       // Define relative base path in cesium for loading assets
       CESIUM_BASE_URL: JSON.stringify(""),
     }),
+    new VueLoaderPlugin(),
+    new CleanWebpackPlugin()
   ],
-  mode: "production",
+  mode: "development",
   devtool: "eval",
 };
