@@ -22,4 +22,5 @@ onMounted(() => {
 
     <div id="cesiumContainer"></div>
 
+<slot></slot>
 </template>
